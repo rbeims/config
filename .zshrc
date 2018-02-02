@@ -96,9 +96,22 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias newlog="vi wl_`date --iso-8601=minutes`.note"
-alias newnote="vi `date --iso-8601=minutes`.note"
-alias newtask="vi task_`date --iso-8601=minutes`.note"
+#alias newlog="vi wl_`date --iso-8601=minutes`.note"
+#alias newnote="vi `date --iso-8601=minutes`.note"
+#alias newtask="vi task_`date --iso-8601=minutes`.note"
 
+function newlog() {
+date=`date --iso-8601=m`
+cat << EOF > "$1".md
+$1
+date: $date
+tags: @log
+
+project: $2
+
+EOF
+
+vim "$1.md"
+}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
