@@ -1,0 +1,6 @@
+[submodule "vimrc"]
+	path = vimrc
+	url = ./.vim/bundle/vimrc
+[submodule "ctrlp.vim"]
+	path = ctrlp.vim
+	url = ./.vim/bundle/ctrlp.vim
